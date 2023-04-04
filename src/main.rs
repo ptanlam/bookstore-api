@@ -4,6 +4,7 @@ extern crate rocket;
 use dotenv::dotenv;
 use std::env;
 
+mod dtos;
 mod handlers;
 mod models;
 
@@ -22,7 +23,13 @@ async fn main() -> Result<(), rocket::Error> {
     rocket::build()
         .mount(
             "/books",
-            routes![handlers::books::list, handlers::books::create],
+            routes![
+                handlers::books::list,
+                handlers::books::get_by_isbn,
+                handlers::books::create,
+                handlers::books::update,
+                handlers::books::delete,
+            ],
         )
         .launch()
         .await?;
