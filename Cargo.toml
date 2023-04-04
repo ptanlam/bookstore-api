@@ -1,5 +1,5 @@
 [package]
-name = "books-api"
+name = "bookstore-api"
 version = "0.1.0"
 edition = "2021"
 
